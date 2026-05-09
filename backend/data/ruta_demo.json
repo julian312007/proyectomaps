@@ -1,0 +1,9 @@
+{
+  "puntos": [
+    {"lat": 40.4168, "lng": -3.7038, "tramo": 1, "distancia": 0.6},
+    {"lat": 40.4185, "lng": -3.7050, "tramo": 2, "distancia": 0.5},
+    {"lat": 40.4208, "lng": -3.7070, "tramo": 3, "distancia": 0.7},
+    {"lat": 40.4220, "lng": -3.7045, "tramo": 4, "distancia": 0.6},
+    {"lat": 40.4195, "lng": -3.7010, "tramo": 5, "distancia": 0.7}
+  ]
+}

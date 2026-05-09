@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyecto Maps</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de Riesgo Urbano</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+e2FjG1vje0Lr6UqG/9VTfQvA4wrr/nk09a1KU9+M=" crossorigin="" />
+  <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-  <div id="app">
-    <h1>Proyecto Maps</h1>
-    <p>Bienvenido a la aplicación de mapas.</p>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="brand-panel">
+        <h1>Mapa de Riesgo Urbano</h1>
+        <p>Visualiza zonas urbanas con riesgo y prepara el sistema para cálculo por tramos.</p>
+      </div>
+
+      <div id="search-panel"></div>
+      <div id="risk-panel"></div>
+      <div id="legend"></div>
+    </aside>
+
+    <main class="map-container">
+      <div id="map"></div>
+    </main>
   </div>
-  <script src="app.js"></script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j6kL0GiWpCMpLwrF4l5yDXG1Z4KkX+72f9e+5vM=" crossorigin=""></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

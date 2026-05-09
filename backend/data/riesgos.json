@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nombre": "Centro histórico",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "criminalidad": 8,
+    "seguridad": 3,
+    "descripcion": "Zona con actividad comercial y tránsito peatonal alto."
+  },
+  {
+    "id": 2,
+    "nombre": "Barrio residencial",
+    "lat": 40.4210,
+    "lng": -3.7075,
+    "criminalidad": 4,
+    "seguridad": 7,
+    "descripcion": "Área residencial con seguridad moderada y poca actividad nocturna."
+  },
+  {
+    "id": 3,
+    "nombre": "Zona industrial",
+    "lat": 40.4125,
+    "lng": -3.6920,
+    "criminalidad": 7,
+    "seguridad": 4,
+    "descripcion": "Sector industrial con tráfico de camiones y seguridad variable."
+  },
+  {
+    "id": 4,
+    "nombre": "Parque central",
+    "lat": 40.4195,
+    "lng": -3.7140,
+    "criminalidad": 3,
+    "seguridad": 8,
+    "descripcion": "Espacio verde con presencia policial y zonas peatonales."
+  },
+  {
+    "id": 5,
+    "nombre": "Mercado popular",
+    "lat": 40.4180,
+    "lng": -3.7010,
+    "criminalidad": 6,
+    "seguridad": 5,
+    "descripcion": "Mercado tradicional con alta afluencia y atención de seguridad urbana."
+  }
+]
