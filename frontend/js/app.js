@@ -1,76 +1,53 @@
 import { initializeMap } from './map/map.js';
-import { addRiskMarkers } from './map/markers.js';
 import { drawRoute } from './map/routeLayer.js';
+import { drawRiskZones } from './map/zonesLayer.js';
 import { renderSearchPanel, showRouteMessage } from './components/searchPanel.js';
 import { renderRiskPanel, updateRiskResult } from './components/riskPanel.js';
 import { renderLegend } from './components/legend.js';
-import { obtenerZonasRiesgo, calcularRiesgoRuta } from './services/riskService.js';
-import { obtenerRutaDemo } from './services/routeService.js';
+import { obtenerComunas } from './services/zoneService.js';
+import { obtenerRuta } from './services/routeService.js';
+import { calcularRiesgoRuta } from './services/riskService.js';
 
-let routeLayers = [];
+let map;
 
-function obtenerTramosSimulados(ruta) {
-  return ruta.puntos.map((punto) => ({
-    tramo: punto.tramo,
-    criminalidad: 6,
-    seguridad: 4,
-    distancia: punto.distancia,
-  }));
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const map = initializeMap();
+document.addEventListener('DOMContentLoaded', async () => {
+  map = initializeMap();
 
   renderSearchPanel(handleRouteCalculation);
   renderRiskPanel();
   renderLegend();
 
-  obtenerZonasRiesgo()
-    .then((zonas) => {
-      addRiskMarkers(map, zonas);
-    })
-    .catch((error) => {
-      console.error(error);
-      showRouteMessage('No fue posible cargar las zonas de riesgo.', true);
-    });
-
-  obtenerRutaDemo()
-    .then((rutaDemo) => {
-      const tramos = obtenerTramosSimulados(rutaDemo);
-      calcularRiesgoRuta(tramos)
-        .then((resultado) => {
-          updateRiskResult(resultado.riesgo_final, resultado.nivel_final);
-          const niveles = resultado.tramos.map((tramo) => tramo.nivel);
-          routeLayers = drawRoute(map, rutaDemo.puntos, niveles);
-          showRouteMessage('Ruta demo cargada y riesgo calculado.', false);
-        })
-        .catch((error) => {
-          console.error(error);
-          showRouteMessage('Error al calcular riesgo de ruta demo.', true);
-        });
-    })
-    .catch((error) => {
-      console.error(error);
-      showRouteMessage('No fue posible cargar la ruta demo.', true);
-    });
+  try {
+    const comunas = await obtenerComunas();
+    drawRiskZones(map, comunas);
+  } catch (error) {
+    console.error(error);
+    showRouteMessage('No fue posible cargar las comunas de Cali.', true);
+  }
 });
 
-function handleRouteCalculation(origin, destination) {
-  const rutaDemo = {
-    puntos: [
-      { tramo: 1, criminalidad: 6, seguridad: 4, distancia: 0.6 },
-      { tramo: 2, criminalidad: 5, seguridad: 5, distancia: 0.5 },
-      { tramo: 3, criminalidad: 7, seguridad: 3, distancia: 0.7 },
-    ],
-  };
+async function handleRouteCalculation(origin, destination) {
+  try {
+    showRouteMessage('Calculando ruta real...', false);
 
-  calcularRiesgoRuta(rutaDemo.puntos)
-    .then((resultado) => {
-      updateRiskResult(resultado.riesgo_final, resultado.nivel_final);
-      showRouteMessage(`Ruta simulada: ${origin} → ${destination}.`, false);
-    })
-    .catch((error) => {
-      console.error(error);
-      showRouteMessage('Error al simular el cálculo de ruta.', true);
+    const ruta = await obtenerRuta(origin, destination);
+
+    const resultadoRiesgo = await calcularRiesgoRuta(
+      ruta.tramos,
+      1,
+      'no_lineal'
+    );
+
+    drawRoute(map, ruta, resultadoRiesgo);
+
+    updateRiskResult({
+      ruta,
+      resultado: resultadoRiesgo,
     });
+
+    showRouteMessage('Ruta calculada correctamente.', false);
+  } catch (error) {
+    console.error(error);
+    showRouteMessage('Error al obtener la ruta.', true);
+  }
 }

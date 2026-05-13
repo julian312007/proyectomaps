@@ -2,9 +2,11 @@ import json
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from pathlib import Path
-from services.math_service import clasificar_nivel
+from services.math_service import clasificar_nivel, resolver_pvi_ruta
 from services.risk_service import cargar_riesgos
-from services.route_service import cargar_ruta_demo
+from services.route_service import obtener_ruta
+from services.zone_service import obtener_comunas
+
 
 BASE_DIR = Path(__file__).resolve().parent
 FRONTEND_DIR = BASE_DIR.parent / 'frontend'
@@ -49,52 +51,48 @@ def calcular_riesgo_ruta():
     if not request_data:
         return jsonify({'error': 'Petición inválida: se requiere JSON'}), 400
 
-    riesgo_inicial = request_data.get('riesgo_inicial')
-    tramos = request_data.get('tramos')
+    riesgo_inicial = request_data.get('riesgo_inicial', 1)
+    tramos = request_data.get('tramos', [])
+    modelo = request_data.get('modelo', 'no_lineal')
 
-    if riesgo_inicial is None or not isinstance(tramos, list):
-        return jsonify({'error': 'Petición inválida: falta riesgo_inicial o tramos'}), 400
+    if not isinstance(tramos, list):
+        return jsonify({'error': 'tramos debe ser una lista'}), 400
 
     try:
-        riesgo_actual = float(riesgo_inicial)
-    except (TypeError, ValueError):
-        return jsonify({'error': 'riesgo_inicial debe ser un número'}), 400
+        resultado = resolver_pvi_ruta(riesgo_inicial, tramos, modelo)
+        return jsonify(resultado)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-    if riesgo_actual < 0:
-        return jsonify({'error': 'riesgo_inicial no puede ser negativo'}), 400
+@app.route('/api/comunas', methods=['GET'])
+def obtener_comunas_endpoint():
+    try:
+        comunas = obtener_comunas()
+        return jsonify(comunas)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-    resultados = []
+@app.route("/api/ruta", methods=["GET"])
+def ruta():
+    origen = request.args.get("origen", "").strip()
+    destino = request.args.get("destino", "").strip()
 
-    for tramo in tramos:
-        if not all(key in tramo for key in ('tramo', 'criminalidad', 'seguridad', 'distancia')):
-            return jsonify({'error': 'Cada tramo debe contener tramo, criminalidad, seguridad y distancia'}), 400
+    if not origen or not destino:
+        return jsonify({
+            "error": "Debes ingresar origen y destino"
+        }), 400
 
-        try:
-            criminalidad = float(tramo['criminalidad'])
-            seguridad = float(tramo['seguridad'])
-            distancia = float(tramo['distancia'])
-        except (TypeError, ValueError):
-            return jsonify({'error': 'Los valores de tramo deben ser numéricos'}), 400
+    try:
+        comunas = obtener_comunas()
+        ruta_calculada = obtener_ruta(origen, destino, comunas)
+        return jsonify(ruta_calculada)
 
-        riesgo_tramo = round((0.5 * criminalidad - 0.3 * seguridad) * distancia, 2)
-        riesgo_actual = round(riesgo_actual + riesgo_tramo, 2)
-        nivel = clasificar_nivel(riesgo_actual)
-
-        resultados.append({
-            'tramo': tramo['tramo'],
-            'riesgo_tramo': riesgo_tramo,
-            'riesgo_acumulado': riesgo_actual,
-            'nivel': nivel,
-        })
-
-    nivel_final = clasificar_nivel(riesgo_actual)
-
-    return jsonify({
-        'riesgo_inicial': float(request_data.get('riesgo_inicial')),
-        'riesgo_final': riesgo_actual,
-        'nivel_final': nivel_final,
-        'tramos': resultados,
-    })
+    except Exception as error:
+        print(f"Error en /api/ruta: {error}")
+        return jsonify({
+            "error": "No se pudo obtener la ruta",
+            "detalle": str(error)
+        }), 500
 
 @app.route('/', methods=['GET'])
 def index():

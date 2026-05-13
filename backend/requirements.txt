@@ -1,2 +1,5 @@
 Flask
 Flask-Cors
+requests
+python-dotenv
+polyline

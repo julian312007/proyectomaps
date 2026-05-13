@@ -56,7 +56,15 @@ PROYECTOMAPS/
 
 ## Cómo ejecutar el proyecto
 
-1. Activa el entorno virtual:
+1. Crea un archivo `.env` en la raíz del proyecto con tu API key de OpenRouteService:
+
+   ```
+   ORS_API_KEY=tu_api_key_aqui
+   ```
+
+   Obtén tu API key gratuita en: https://openrouteservice.org/
+
+2. Activa el entorno virtual:
 
    PowerShell:
    ```powershell
@@ -68,19 +76,24 @@ PROYECTOMAPS/
    .venv\Scripts\activate.bat
    ```
 
-2. Instala dependencias:
+   Si no tienes el entorno virtual creado:
+   ```powershell
+   python -m venv .venv
+   ```
+
+3. Instala dependencias:
 
    ```powershell
    python -m pip install -r backend\requirements.txt
    ```
 
-3. Ejecuta el backend:
+4. Ejecuta el backend:
 
    ```powershell
    python backend\app.py
    ```
 
-4. Abre el navegador en:
+5. Abre el navegador en:
 
    ```text
    http://127.0.0.1:5000/

@@ -1,0 +1,332 @@
+[
+  {
+    "id": 1,
+    "nombre": "Comuna 1",
+    "criminalidad": 6,
+    "seguridad": 5,
+    "vigilancia": 5,
+    "iluminacion": 6,
+    "flujo_personas": 7,
+    "coordenadas": [
+      [3.45, -76.53],
+      [3.46, -76.53],
+      [3.46, -76.52],
+      [3.45, -76.52]
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Comuna 2",
+    "criminalidad": 7,
+    "seguridad": 4,
+    "vigilancia": 4,
+    "iluminacion": 5,
+    "flujo_personas": 8,
+    "coordenadas": [
+      [3.46, -76.53],
+      [3.47, -76.53],
+      [3.47, -76.52],
+      [3.46, -76.52]
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Comuna 3",
+    "criminalidad": 5,
+    "seguridad": 6,
+    "vigilancia": 6,
+    "iluminacion": 7,
+    "flujo_personas": 6,
+    "coordenadas": [
+      [3.47, -76.53],
+      [3.48, -76.53],
+      [3.48, -76.52],
+      [3.47, -76.52]
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "Comuna 4",
+    "criminalidad": 8,
+    "seguridad": 3,
+    "vigilancia": 3,
+    "iluminacion": 4,
+    "flujo_personas": 9,
+    "coordenadas": [
+      [3.48, -76.53],
+      [3.49, -76.53],
+      [3.49, -76.52],
+      [3.48, -76.52]
+    ]
+  },
+  {
+    "id": 5,
+    "nombre": "Comuna 5",
+    "criminalidad": 4,
+    "seguridad": 7,
+    "vigilancia": 7,
+    "iluminacion": 8,
+    "flujo_personas": 5,
+    "coordenadas": [
+      [3.49, -76.53],
+      [3.50, -76.53],
+      [3.50, -76.52],
+      [3.49, -76.52]
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "Comuna 6",
+    "criminalidad": 6,
+    "seguridad": 5,
+    "vigilancia": 5,
+    "iluminacion": 6,
+    "flujo_personas": 7,
+    "coordenadas": [
+      [3.50, -76.53],
+      [3.51, -76.53],
+      [3.51, -76.52],
+      [3.50, -76.52]
+    ]
+  },
+  {
+    "id": 7,
+    "nombre": "Comuna 7",
+    "criminalidad": 7,
+    "seguridad": 4,
+    "vigilancia": 4,
+    "iluminacion": 5,
+    "flujo_personas": 8,
+    "coordenadas": [
+      [3.51, -76.53],
+      [3.52, -76.53],
+      [3.52, -76.52],
+      [3.51, -76.52]
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "Comuna 8",
+    "criminalidad": 5,
+    "seguridad": 6,
+    "vigilancia": 6,
+    "iluminacion": 7,
+    "flujo_personas": 6,
+    "coordenadas": [
+      [3.52, -76.53],
+      [3.53, -76.53],
+      [3.53, -76.52],
+      [3.52, -76.52]
+    ]
+  },
+  {
+    "id": 9,
+    "nombre": "Comuna 9",
+    "criminalidad": 8,
+    "seguridad": 3,
+    "vigilancia": 3,
+    "iluminacion": 4,
+    "flujo_personas": 9,
+    "coordenadas": [
+      [3.53, -76.53],
+      [3.54, -76.53],
+      [3.54, -76.52],
+      [3.53, -76.52]
+    ]
+  },
+  {
+    "id": 10,
+    "nombre": "Comuna 10",
+    "criminalidad": 4,
+    "seguridad": 7,
+    "vigilancia": 7,
+    "iluminacion": 8,
+    "flujo_personas": 5,
+    "coordenadas": [
+      [3.54, -76.53],
+      [3.55, -76.53],
+      [3.55, -76.52],
+      [3.54, -76.52]
+    ]
+  },
+  {
+    "id": 11,
+    "nombre": "Comuna 11",
+    "criminalidad": 6,
+    "seguridad": 5,
+    "vigilancia": 5,
+    "iluminacion": 6,
+    "flujo_personas": 7,
+    "coordenadas": [
+      [3.55, -76.53],
+      [3.56, -76.53],
+      [3.56, -76.52],
+      [3.55, -76.52]
+    ]
+  },
+  {
+    "id": 12,
+    "nombre": "Comuna 12",
+    "criminalidad": 7,
+    "seguridad": 4,
+    "vigilancia": 4,
+    "iluminacion": 5,
+    "flujo_personas": 8,
+    "coordenadas": [
+      [3.56, -76.53],
+      [3.57, -76.53],
+      [3.57, -76.52],
+      [3.56, -76.52]
+    ]
+  },
+  {
+    "id": 13,
+    "nombre": "Comuna 13",
+    "criminalidad": 5,
+    "seguridad": 6,
+    "vigilancia": 6,
+    "iluminacion": 7,
+    "flujo_personas": 6,
+    "coordenadas": [
+      [3.57, -76.53],
+      [3.58, -76.53],
+      [3.58, -76.52],
+      [3.57, -76.52]
+    ]
+  },
+  {
+    "id": 14,
+    "nombre": "Comuna 14",
+    "criminalidad": 8,
+    "seguridad": 3,
+    "vigilancia": 3,
+    "iluminacion": 4,
+    "flujo_personas": 9,
+    "coordenadas": [
+      [3.58, -76.53],
+      [3.59, -76.53],
+      [3.59, -76.52],
+      [3.58, -76.52]
+    ]
+  },
+  {
+    "id": 15,
+    "nombre": "Comuna 15",
+    "criminalidad": 4,
+    "seguridad": 7,
+    "vigilancia": 7,
+    "iluminacion": 8,
+    "flujo_personas": 5,
+    "coordenadas": [
+      [3.59, -76.53],
+      [3.60, -76.53],
+      [3.60, -76.52],
+      [3.59, -76.52]
+    ]
+  },
+  {
+    "id": 16,
+    "nombre": "Comuna 16",
+    "criminalidad": 6,
+    "seguridad": 5,
+    "vigilancia": 5,
+    "iluminacion": 6,
+    "flujo_personas": 7,
+    "coordenadas": [
+      [3.60, -76.53],
+      [3.61, -76.53],
+      [3.61, -76.52],
+      [3.60, -76.52]
+    ]
+  },
+  {
+    "id": 17,
+    "nombre": "Comuna 17",
+    "criminalidad": 7,
+    "seguridad": 4,
+    "vigilancia": 4,
+    "iluminacion": 5,
+    "flujo_personas": 8,
+    "coordenadas": [
+      [3.61, -76.53],
+      [3.62, -76.53],
+      [3.62, -76.52],
+      [3.61, -76.52]
+    ]
+  },
+  {
+    "id": 18,
+    "nombre": "Comuna 18",
+    "criminalidad": 5,
+    "seguridad": 6,
+    "vigilancia": 6,
+    "iluminacion": 7,
+    "flujo_personas": 6,
+    "coordenadas": [
+      [3.62, -76.53],
+      [3.63, -76.53],
+      [3.63, -76.52],
+      [3.62, -76.52]
+    ]
+  },
+  {
+    "id": 19,
+    "nombre": "Comuna 19",
+    "criminalidad": 8,
+    "seguridad": 3,
+    "vigilancia": 3,
+    "iluminacion": 4,
+    "flujo_personas": 9,
+    "coordenadas": [
+      [3.63, -76.53],
+      [3.64, -76.53],
+      [3.64, -76.52],
+      [3.63, -76.52]
+    ]
+  },
+  {
+    "id": 20,
+    "nombre": "Comuna 20",
+    "criminalidad": 4,
+    "seguridad": 7,
+    "vigilancia": 7,
+    "iluminacion": 8,
+    "flujo_personas": 5,
+    "coordenadas": [
+      [3.64, -76.53],
+      [3.65, -76.53],
+      [3.65, -76.52],
+      [3.64, -76.52]
+    ]
+  },
+  {
+    "id": 21,
+    "nombre": "Comuna 21",
+    "criminalidad": 6,
+    "seguridad": 5,
+    "vigilancia": 5,
+    "iluminacion": 6,
+    "flujo_personas": 7,
+    "coordenadas": [
+      [3.65, -76.53],
+      [3.66, -76.53],
+      [3.66, -76.52],
+      [3.65, -76.52]
+    ]
+  },
+  {
+    "id": 22,
+    "nombre": "Comuna 22",
+    "criminalidad": 7,
+    "seguridad": 4,
+    "vigilancia": 4,
+    "iluminacion": 5,
+    "flujo_personas": 8,
+    "coordenadas": [
+      [3.66, -76.53],
+      [3.67, -76.53],
+      [3.67, -76.52],
+      [3.66, -76.52]
+    ]
+  }
+]
