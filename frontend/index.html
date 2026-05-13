@@ -3,16 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Mapa de Riesgo Urbano</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+e2FjG1vje0Lr6UqG/9VTfQvA4wrr/nk09a1KU9+M=" crossorigin="" />
-  <link rel="stylesheet" href="styles/styles.css" />
+
+  <!-- Estilos de Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <!-- Estilos propios del proyecto -->
+  <link rel="stylesheet" href="/styles/styles.css" />
 </head>
+
 <body>
   <div class="app-layout">
     <aside class="sidebar">
       <div class="brand-panel">
         <h1>Mapa de Riesgo Urbano</h1>
-        <p>Visualiza zonas urbanas con riesgo y prepara el sistema para cálculo por tramos.</p>
+        <p>
+          Visualiza zonas urbanas con riesgo y prepara el sistema para cálculo por tramos.
+        </p>
       </div>
 
       <div id="search-panel"></div>
@@ -25,7 +36,10 @@
     </main>
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j6kL0GiWpCMpLwrF4l5yDXG1Z4KkX+72f9e+5vM=" crossorigin=""></script>
-  <script type="module" src="js/app.js"></script>
+  <!-- Librería Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Archivo principal del frontend -->
+  <script type="module" src="/js/app.js"></script>
 </body>
 </html>
